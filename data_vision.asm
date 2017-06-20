@@ -5,6 +5,7 @@ ds1 segment para 'data'
   assume ss:nothing,cs:cs1,ds:ds1,es: cs1
    ;org 100h
   begin   proc near
+  ;mov ax, ds ; ax = adress ds 
 mov al, ds:[256]
 
 add al,2h
