@@ -1,4 +1,4 @@
-; tasm.com, masm32.com, wasm 
+; tasm.com, masm16.com, wasm 
 .model tiny
        .code
        ORG    100h
