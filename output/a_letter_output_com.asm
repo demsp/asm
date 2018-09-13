@@ -5,5 +5,6 @@
 start: MOV    AH,2
        MOV    DL,41h
        INT    21h
+       ;terminate program
        INT    20h
        END    start
