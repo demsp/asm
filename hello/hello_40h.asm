@@ -1,8 +1,10 @@
+;http://www.firststeps.ru/asm/tasm1.html
 ;mov ah, 40h
+
 MODEL	TINY
 STACK 256	
 DATASEG
-	Hellostr DB 'Hello First Step Site '
+	Hellostr DB 'Hello with 40h '
 CODESEG		
 start:	
 	mov ax,@data		
