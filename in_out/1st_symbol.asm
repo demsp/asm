@@ -8,7 +8,7 @@ start:
   mov cx,14h	
   mov dx,OFFSET buffer
   int 21h
-  sub ax,ax
+  ;sub ax,ax
   mov ah,2
   mov dl, buffer
   int 21h
