@@ -1,6 +1,15 @@
+_machine_code
 C:\>debug
 -r
 -e cs:100 b8 23 01 00 00 00 
 -r
 -t
 -q
+
+_assembly_code
+C:\>debug
+-a
+0B5C:0100 _ Enter_command
+0B5C:0103 _Enter_"Enter"
+
+
