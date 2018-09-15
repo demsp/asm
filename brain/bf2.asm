@@ -15,7 +15,7 @@ start:
   mov dl, strng
   int 21h
  ;;;;;;;;;;
- cmp strng, 7Ah
+ cmp strng, 2Bh
  je  metka
   mov AX,@data	 
   mov DS,AX
