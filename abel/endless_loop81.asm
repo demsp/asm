@@ -3,7 +3,7 @@ CODESG  SEGMENT PARA 'Code'
    ASSUME  CS:CODESG,DS:CODESG,SS:CODESG,ES:NOTHING
    ORG     100H
 BEGIN:  JMP     SHORT MAIN
-CTR     DB      00,'S'
+CTR     DB      00,'$'
 
 ;               Основная процедура:
 ;               ------------------
