@@ -4,17 +4,17 @@ begin:
  mov ax,data
  mov ds,ax
  ;Подготовим все необходимое
-  mov dl, arr
+  mov dl, stor
   mov cx,5 ;кол-во циклов
   mov bx, 0 ;bx-индекс второго эл-та
 cont: 
 cmp dl, 2Bh
-jne next ; да, на анализ следующего
+jne next ; нет, выводим +
  mov ah,2
  mov dl, 2Bh
  int 21h
 next: inc bx
-mov dl,arr[bx]
+mov dl,stor[bx]
 loop cont
 
 ;terminate
@@ -23,7 +23,7 @@ loop cont
 text ends
 data segment
 
-arr db 2Bh,2Bh,2Bh,2Dh,2Dh,'$'
+stor db 2Bh,2Bh,2Bh,2Bh,2Dh,'$'
  data ends
  stk segment stack
      db 256 dup (0)
