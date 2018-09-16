@@ -5,7 +5,7 @@ DATASEG
 CODESEG
 start: 
  MOV CX,256 ;256 итераций
- LEA DX,CTR  ;Адрес счетчика
+ ;LEA DX,CTR  ;Адрес счетчика
 D20:
  MOV AH,02 ;Функция вывода символа
  mov dl, CTR
