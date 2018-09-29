@@ -5,21 +5,21 @@ begin:
  mov ds,ax
  ;Подготовим все необходимое
   mov dl, stor
-  mov cx, 0Ah ;кол-во циклов
- ;mov bx, 0 ;bx - индекс элемента массива stor 
-  mov indx, 0 ;indx - индекс элемента массива stor 
+  mov cx, 0Ah        ;кол-во циклов
+ ;mov bx, 0          ;bx - индекс элемента массива stor 
+  mov indx_stor, 0   ;indx - индекс элемента массива stor 
 cont: 
 cmp dl, 2Bh  ; if +
-jne next ; нет, увеличиваем элемент массива arr
+jne next             ; нет, увеличиваем элемент массива arr
  inc arr[0]
 next: 
 cmp dl, 2Dh ; if -
-jne next1 ; нет, уменьшаем элемент массива arr
+jne next1             ; нет, уменьшаем элемент массива arr
  dec arr[0] 
 next1: 
  ;inc bx
- inc indx
- mov bx, indx
+ inc indx_stor
+ mov bx, indx_stor
  mov dl,stor[bx]
  
  
@@ -37,7 +37,7 @@ data segment
 
 stor DB  2Bh,2Bh,2Bh,2Bh,'$' ;++++-
 arr DB 48,48,48,48,48,'$' ;00000
-indx dw 0,'$'
+indx_stor dw 0,'$'
  data ends
  stk segment stack
      db 256 dup (0)
