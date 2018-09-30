@@ -7,7 +7,7 @@ begin:
   mov dl, stor
   mov cx, 0Ah        ;кол-во циклов
  ;mov bx, 0          ;bx - индекс элемента массива stor 
-  mov indx_stor, 0   ;indx - индекс элемента массива stor 
+ ; mov indx_stor, 0   ;indx_stor - индекс элемента массива stor  можно не инициализировать
 cont: 
 cmp dl, 2Bh  ; if +
 jne next             ; нет, увеличиваем элемент массива arr
