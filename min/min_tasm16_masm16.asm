@@ -4,7 +4,7 @@ begin proc far
  assume cs:codesg
   
   ;mov ax, cs
- mon ax, 0x0001
+ mov ax, 0x0001
  nop 
  ret
 begin endp
