@@ -9,7 +9,17 @@ C:\>debug
 _assembly_code
 C:\>debug
 -a
-0B5C:0100 _ Enter_command
+0B5C:0100 _Enter_command
 0B5C:0103 _Enter_"Enter"
+
+-enter_"12"_to_RAM
+-a 
+0B58:0100 mov AX, 3231
+0B58:0103 mov [0004], AX
+-"Enter"
+-t
+-t
+-d ds:0
+
 
 
