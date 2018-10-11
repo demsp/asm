@@ -1,19 +1,24 @@
-;model tiny
-ds1 segment para 'data'
-     ff1 dw 3 
- ds1 ends
- cs1 segment para 'code'
-  assume ss:nothing,cs:cs1,ds:ds1,es: cs1
-   ;org 100h
-  begin   proc near
-  ;mov ax, @data ; adress ds with tiny_model
-  ;mov ax, ds ; adress ds without tiny_model
-mov al, ds:[256]
+code segment 
+assume ss:nothing,cs:code,ds:nothing, es:code
+begin: 
 
-add al,2h
-mov bl, 1
-   ret
-   begin endp
-   cs1 ends
-   end begin
-   
+ MOV    AH,2
+ MOV    DL,DS:[300]
+ INT    21h
+ MOV    DL,DS:[301]
+ INT    21h
+ MOV    DL,DS:[302]
+ INT    21h
+ MOV    DL,DS:[303]
+ INT    21h
+ MOV    DL,DS:[304]
+ INT    21h
+ MOV    DL,DS:[305]
+ INT    21h
+ ;terminate program   
+ mov ah,4ch
+ int 21h 
+
+ ;begin endp
+code ends
+ end begin
