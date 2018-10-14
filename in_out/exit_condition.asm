@@ -1,32 +1,40 @@
 ;вывод по условию
 ; http://mykonspekts.ru/2-133377.html
+
 assume cs:text,ds:data
 text segment 
 
 begin:
-	mov AX,data	 ;Настроим DS
-	mov DS,AX
-	mov dx,OFFSET arr; Question
-	mov AH,09h
-	int 21h
-	
-
-	mov ah,01h ;DOS получить символ
-	int 21h ; вызвать прерывание
-	cmp al,'y' ; сравнить регистр с 'y'
-
-	jnz IsMorning ;no, it's before noon
-	
-	mov dx,OFFSET GoodAfternoonMessage ;point to the afternoon greeting
-	jmp DisplayGreeting
-	IsMorning:
-	mov dx,OFFSET GoodMorningMessage ;point to the before noon greeting
-
+mov ax,data
+mov ds,ax ;set DS to point to the data segment
+mov dx,OFFSET TimePrompt ;point to the time prompt
+mov ah,9 ;DOS print string function
+int 21h ;display the time prompt
+mov ah,1 ;DOS get character function
+int 21h ;get a single-character response
+cmp al,'y' ;typed lowercase y for after noon?
+jz IsAfternoon ;yes, it's after noon
+cmp al,'Y' ;typed uppercase Y for after noon?
+jnz IsMorning ;no, it's before noon
+IsAfternoon:
+mov dx,OFFSET GoodAfternoonMessage ;point to the afternoon greeting
+jmp DisplayGreeting
+IsMorning:
+mov dx,OFFSET GoodMorningMessage ;point to the before noon greeting
 DisplayGreeting:
-	mov ah,9 ;DOS print string function
-	int 21h ;display the appropriate greeting
-	mov ah,4ch ;DOS terminate program function
-	int 21h ;terminate the program	
-
+mov ah,9 ;DOS print string function
+int 21h ;display the appropriate greeting
+mov ah,4ch ;DOS terminate program function
+int 21h ;terminate the program	
 ret
 text ends
+
+data segment
+TimePrompt DB 'Is it after 12 noon (Y/N)?$'
+GoodMorningMessage LABEL BYTE
+DB 13,10,'Good morning, world!',13,10,'$'
+GoodAfternoonMessage LABEL BYTE
+DB 13,10,'Good afternoon, world!',13,10,'$'
+data ends
+
+end begin 
