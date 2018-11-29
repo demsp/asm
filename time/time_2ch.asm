@@ -1,4 +1,4 @@
-; load current time in dx:cx
+; load current time in cx:dx
 text segment 
  assume cs:text,ds:data
  begin: 
