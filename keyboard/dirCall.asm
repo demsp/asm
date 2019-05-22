@@ -1,3 +1,5 @@
+; INT 16h, АН = 05h — Поместить символ в буфер клавиатуры. Ввод: АН = 05h
+
 ; tasm.exe dirCall.asm
 ; tlink.exe /t dirCall.obj
 
